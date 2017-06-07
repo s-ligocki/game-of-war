@@ -3,6 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/game-of-war.iml" filepath="$PROJECT_DIR$/game-of-war.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/game-of-war_main.iml" filepath="$PROJECT_DIR$/.idea/modules/game-of-war_main.iml" group="game-of-war" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/game-of-war_test.iml" filepath="$PROJECT_DIR$/.idea/modules/game-of-war_test.iml" group="game-of-war" />
     </modules>
   </component>
 </project>
