@@ -12,3 +12,4 @@ dependency-reduced-pom.xml
 *.idea
 .gradle/
 Thumbs.db
+.idea
