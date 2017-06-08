@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3ce23f12-f9a7-447a-876b-aa02c0f0a3fd" name="Default" comment="">
+    <list default="true" id="3ce23f12-f9a7-447a-876b-aa02c0f0a3fd" name="Default" comment="Cleaning, gitignore project files part2">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
     </list>
     <ignored path="$PROJECT_DIR$/game-of-war-rest/.gradle/" />
     <ignored path="$PROJECT_DIR$/game-of-war-rest/build/" />
@@ -97,7 +101,7 @@
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="170">
-              <caret line="10" column="5" lean-forward="true" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
+              <caret line="10" column="5" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -515,6 +519,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="game-of-war" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="game-of-war" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="game-of-war" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value=".idea" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1042,7 +1060,7 @@
       <updated>1496951955089</updated>
       <workItem from="1496951956408" duration="584000" />
       <workItem from="1496952561575" duration="157000" />
-      <workItem from="1496952741231" duration="981000" />
+      <workItem from="1496952741231" duration="1208000" />
     </task>
     <task id="LOCAL-00001" summary="Cleaning, new modules">
       <created>1496953496725</created>
@@ -1058,11 +1076,18 @@
       <option name="project" value="LOCAL" />
       <updated>1496953714693</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Cleaning, gitignore project files part2">
+      <created>1496953732465</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1496953732465</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1722000" />
+    <option name="totallyTimeSpent" value="1949000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -1136,7 +1161,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Cleaning, new modules" />
     <MESSAGE value="Cleaning, gitignore project files" />
-    <option name="LAST_COMMIT_MESSAGE" value="Cleaning, gitignore project files" />
+    <MESSAGE value="Cleaning, gitignore project files part2" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cleaning, gitignore project files part2" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1289,7 +1315,7 @@
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
-          <caret line="10" column="5" lean-forward="true" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
+          <caret line="10" column="5" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
           <folding />
         </state>
       </provider>
