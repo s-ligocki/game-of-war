@@ -6,9 +6,10 @@ angular.module('myApp', [
   'myApp.view1',
   'myApp.view2',
   'myApp.version'
-]).
-config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
-  $locationProvider.hashPrefix('!');
-
-  $routeProvider.otherwise({redirectTo: '/view1'});
-}]);
+])
+    .controller('Hello', function($scope, $http) {
+        $http.get('http://localhost:8080/get-new-board').
+        then(function(response) {
+            $scope.board = response.data;
+        });
+    });
