@@ -1,11 +1,9 @@
 package com.beleco.gameofwar.service;
 
 import com.beleco.gameofwar.domain.game.Board;
-import com.beleco.gameofwar.domain.game.Dot;
 import com.beleco.gameofwar.domain.game.TriStateLife;
+import com.beleco.gameofwar.util.EnumRandomizer;
 import org.springframework.stereotype.Component;
-
-import java.util.Random;
 
 /**
  * Created by Everdark on 13.06.2017.
@@ -17,14 +15,14 @@ public class MockBoardService implements BoardService{
     public Board getNewGeneration(Board currentState) {
 
         Board mockBoard = new Board();
-        mockBoard.setOwnerId(Long.valueOf(0));
+        mockBoard.setOwnerId(0L);
         mockBoard.setSize(3);
 
-        Dot[][] state = new Dot[3][3];
+        TriStateLife[][] state = new TriStateLife[3][3];
+        EnumRandomizer<TriStateLife> generator = new EnumRandomizer(TriStateLife.class);
         for(int i=0; i<3; i++){
             for(int j=0; j<3; j++) {
-                Random generator = new Random();
-                state[i][j] = new Dot(TriStateLife.valueOfInt(generator.nextInt(3)));
+                state[i][j] = generator.getRandomValue();
             }
         }
         mockBoard.setState(state);

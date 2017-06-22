@@ -12,15 +12,15 @@ import javax.persistence.OneToMany;
  */
 public class Board {
 
-    private Dot[][] state;
+    private TriStateLife[][] state;
     private int size;
     private Long ownerId;
 
-    public Dot[][] getState() {
+    public TriStateLife[][] getState() {
         return state;
     }
 
-    public void setState(Dot[][] state) {
+    public void setState(TriStateLife[][] state) {
         this.state = state;
     }
 
