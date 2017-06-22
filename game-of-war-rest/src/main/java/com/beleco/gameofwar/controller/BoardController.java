@@ -14,11 +14,13 @@ public class BoardController {
     @Autowired
     private BoardService boardService;
 
+    @CrossOrigin(origins = "http://localhost:63342")
     @RequestMapping(value = "/get-new-board", method = RequestMethod.GET)
     public Board getInitialBoard() {
         return boardService.getNewGeneration(null);
     }
 
+    @CrossOrigin(origins = "http://localhost:63342")
     @RequestMapping(value = "/get-new-generation", method = RequestMethod.POST)
     public Board getNextBoard(@RequestBody Board board) {
         return boardService.getNewGeneration(board);
