@@ -73,6 +73,18 @@ public class BoardControllerTest {
                 .content("{\n" +
                         "  \"state\": [\n" +
                         "    [\n" +
+                        "      \"EMPTY\",\n" +
+                        "      \"PLAYER_TWO\"\n" +
+                        "    ],\n" +
+                        "    [\n" +
+                        "      \"PLAYER_ONE\",\n" +
+                        "      \"EMPTY\",\n" +
+                        "      \"PLAYER_ONE\"\n" +
+                        "    ],\n" +
+                        "    [\n" +
+                        "      \"PLAYER_ONE\",\n" +
+                        "      \"EMPTY\",\n" +
+                        "      \"PLAYER_TWO\"\n" +
                         "      \"PLAYER_TWO\",\n" +
                         "      \"PLAYER_TWO\",\n" +
                         "      \"PLAYER_ONE\"\n" +
