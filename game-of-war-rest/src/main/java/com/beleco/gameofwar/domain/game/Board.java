@@ -1,26 +1,19 @@
 package com.beleco.gameofwar.domain.game;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-
 /**
  * Created by Everdark on 13.06.2017.
  */
 public class Board {
 
-    private TriStateLife[][] state;
+    private Dot[][] state;
     private int size;
     private Long ownerId;
 
-    public TriStateLife[][] getState() {
+    public Dot[][] getState() {
         return state;
     }
 
-    public void setState(TriStateLife[][] state) {
+    public void setState(Dot[][] state) {
         this.state = state;
     }
 
