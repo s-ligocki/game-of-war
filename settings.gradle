@@ -1,0 +1,2 @@
+include 'game-of-war-front'
+include 'game-of-war-rest'

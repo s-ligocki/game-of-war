@@ -85,6 +85,19 @@ public class BoardControllerTest {
                         "      \"PLAYER_ONE\",\n" +
                         "      \"EMPTY\",\n" +
                         "      \"PLAYER_TWO\"\n" +
+                        "      \"PLAYER_TWO\",\n" +
+                        "      \"PLAYER_TWO\",\n" +
+                        "      \"PLAYER_ONE\"\n" +
+                        "    ],\n" +
+                        "    [\n" +
+                        "      \"EMPTY\",\n" +
+                        "      \"PLAYER_TWO\",\n" +
+                        "      \"PLAYER_ONE\"\n" +
+                        "    ],\n" +
+                        "    [\n" +
+                        "      \"EMPTY\",\n" +
+                        "      \"EMPTY\",\n" +
+                        "      \"EMPTY\"\n" +
                         "    ]\n" +
                         "  ],\n" +
                         "  \"size\": 3,\n" +
