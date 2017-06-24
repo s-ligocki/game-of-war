@@ -2,6 +2,7 @@ package com.beleco.gameofwar.controller;
 
 import com.beleco.gameofwar.Application;
 import com.beleco.gameofwar.domain.game.Board;
+import com.beleco.gameofwar.exception.NotValidBoardExcepiton;
 import com.beleco.gameofwar.service.BoardService;
 import org.junit.Before;
 import org.junit.Test;
@@ -64,6 +65,14 @@ public class BoardControllerTest {
         mockMvc.perform(get("/get-new-board/")
                 .contentType(contentType))
                 .andExpect(status().isOk());
+    }
+
+    @Test
+    public void getInitialBoardBadInput() throws Exception {
+        when(boardService.getNewGeneration(null)).thenThrow(NotValidBoardExcepiton.class);
+        mockMvc.perform(get("/get-new-board/")
+                .contentType(contentType))
+                .andExpect(status().isBadRequest());
     }
 
     @Test

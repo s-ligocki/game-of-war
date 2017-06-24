@@ -2,6 +2,7 @@ package com.beleco.gameofwar.service;
 
 import com.beleco.gameofwar.domain.game.Board;
 import com.beleco.gameofwar.domain.game.Dot;
+import com.beleco.gameofwar.exception.NotValidBoardExcepiton;
 import com.beleco.gameofwar.util.EnumRandomizer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -19,15 +20,26 @@ public class MockBoardService implements BoardService{
     EnumRandomizer<Dot> randomizer;
 
     @Override
-    public Board getNewGeneration(Board currentState) {
+    public Board getNewGeneration(Board currentState) throws NotValidBoardExcepiton{
+        if(currentState==null){
+            throw new NotValidBoardExcepiton("Board is not initialized");
+        }
+        return createRandomBoard();
+    }
+
+    private Board createRandomBoard(){
         Board mockBoard = new Board();
-        mockBoard.setOwnerId(OWNER_ID);
-        mockBoard.setSize(BOARD_SIZE);
-        mockBoard.setState(generateBoardState(BOARD_SIZE));
+        fillBoardFields(mockBoard);
         return mockBoard;
     }
 
-    private Dot[][] generateBoardState(int boardSize){
+    private void fillBoardFields(Board board){
+        board.setOwnerId(OWNER_ID);
+        board.setSize(BOARD_SIZE);
+        board.setState(createBoardState(BOARD_SIZE));
+    }
+
+    private Dot[][] createBoardState(int boardSize){
         Dot[][] state = new Dot[boardSize][boardSize];
         randomizeBoardState(state);
         return state;
