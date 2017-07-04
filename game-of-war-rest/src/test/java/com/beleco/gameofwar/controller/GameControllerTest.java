@@ -2,8 +2,8 @@ package com.beleco.gameofwar.controller;
 
 import com.beleco.gameofwar.Application;
 import com.beleco.gameofwar.domain.game.Board;
-import com.beleco.gameofwar.exception.NotValidBoardExcepiton;
-import com.beleco.gameofwar.service.BoardService;
+import com.beleco.gameofwar.domain.game.GameState;
+import com.beleco.gameofwar.service.GameService;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -13,14 +13,12 @@ import org.mockito.MockitoAnnotations;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
-import org.springframework.mock.http.MockHttpOutputMessage;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
-import java.io.IOException;
 import java.nio.charset.Charset;
 
 import static org.mockito.Matchers.isA;
@@ -28,7 +26,6 @@ import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-import static org.springframework.test.web.servlet.setup.MockMvcBuilders.webAppContextSetup;
 
 /**
  * Created by Everdark on 13.06.2017.
@@ -36,7 +33,7 @@ import static org.springframework.test.web.servlet.setup.MockMvcBuilders.webAppC
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = Application.class)
 @WebAppConfiguration
-public class BoardControllerTest {
+public class GameControllerTest {
 
     private MediaType contentType = new MediaType(MediaType.APPLICATION_JSON.getType(),
             MediaType.APPLICATION_JSON.getSubtype(),
@@ -48,10 +45,10 @@ public class BoardControllerTest {
     private WebApplicationContext webApplicationContext;
 
     @Mock
-    private BoardService boardService;
+    private GameService gameService;
 
     @InjectMocks
-    private BoardController controllerUnderTest;
+    private GameController controllerUnderTest;
 
     @Before
     public void setup() throws Exception {
@@ -60,25 +57,39 @@ public class BoardControllerTest {
     }
 
     @Test
-    public void getInitialBoard() throws Exception {
-        when(boardService.getNewGeneration(isA(Board.class))).thenReturn(new Board());
-        mockMvc.perform(get("/get-new-board/")
+    public void login() throws Exception {
+        when(gameService.login(isA(String.class))).thenReturn("TEST_USER_ID");
+        mockMvc.perform(get("/login/username")
                 .contentType(contentType))
                 .andExpect(status().isOk());
     }
 
     @Test
-    public void getInitialBoardBadInput() throws Exception {
-        when(boardService.getNewGeneration(null)).thenThrow(NotValidBoardExcepiton.class);
-        mockMvc.perform(get("/get-new-board/")
+    public void reset() throws Exception {
+        mockMvc.perform(get("/reset/user-id")
                 .contentType(contentType))
-                .andExpect(status().isBadRequest());
+                .andExpect(status().isOk());
     }
 
     @Test
-    public void getNextBoard() throws Exception {
-        when(boardService.getNewGeneration(isA(Board.class))).thenReturn(new Board());
-        mockMvc.perform(post("/get-new-generation/")
+    public void getGameState() throws Exception {
+        when(gameService.getGameState(isA(String.class))).thenReturn(GameState.YOUR_TURN);
+        mockMvc.perform(get("/get-game-state/userid")
+                .contentType(contentType))
+                .andExpect(status().isOk());
+    }
+
+    @Test
+    public void getBoard() throws Exception {
+        when(gameService.getBoardState(isA(String.class))).thenReturn(new Board());
+        mockMvc.perform(get("/get-board/userid")
+                .contentType(contentType))
+                .andExpect(status().isOk());
+    }
+
+    @Test
+    public void play() throws Exception {
+        mockMvc.perform(post("/play")
                 .content("{\n" +
                         "  \"state\": [\n" +
                         "    [\n" +
