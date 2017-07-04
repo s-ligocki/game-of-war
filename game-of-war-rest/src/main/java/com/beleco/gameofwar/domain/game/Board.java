@@ -7,7 +7,6 @@ public class Board {
 
     private Dot[][] state;
     private int size;
-    private Long ownerId;
 
     public Dot[][] getState() {
         return state;
@@ -23,13 +22,5 @@ public class Board {
 
     public void setSize(int size) {
         this.size = size;
-    }
-
-    public Long getOwnerId() {
-        return ownerId;
-    }
-
-    public void setOwnerId(Long ownerId) {
-        this.ownerId = ownerId;
     }
 }

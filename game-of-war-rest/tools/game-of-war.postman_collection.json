@@ -1,0 +1,105 @@
+{
+	"variables": [],
+	"info": {
+		"name": "game-of-war",
+		"_postman_id": "b6ad06db-c474-7e26-b13d-6a81c1e40b32",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8080/login/...",
+			"request": {
+				"url": "http://localhost:8080/login/some_username",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\tuserId: \"1234\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/reset/...",
+			"request": {
+				"url": "http://localhost:8080/reset/some_username",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"state\": [\n    [\n      \"EMPTY\",\n      \"PLAYER_TWO\",\n      \"EMPTY\"\n    ],\n    [\n      \"EMPTY\",\n      \"PLAYER_TWO\",\n      \"EMPTY\"\n    ],\n    [\n      \"PLAYER_ONE\",\n      \"PLAYER_TWO\",\n      \"PLAYER_TWO\"\n    ]\n  ],\n  \"size\": 3,\n  \"ownerId\": 0\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/get-game-state/...",
+			"request": {
+				"url": "http://localhost:8080/get-game-state/some_userid",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"state\": [\n    [\n      \"EMPTY\",\n      \"PLAYER_TWO\",\n      \"EMPTY\"\n    ],\n    [\n      \"EMPTY\",\n      \"PLAYER_TWO\",\n      \"EMPTY\"\n    ],\n    [\n      \"PLAYER_ONE\",\n      \"PLAYER_TWO\",\n      \"PLAYER_TWO\"\n    ]\n  ],\n  \"size\": 3,\n  \"ownerId\": 0\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/get-board/...",
+			"request": {
+				"url": "http://localhost:8080/get-board/some_userid",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"state\": [\n    [\n      \"EMPTY\",\n      \"PLAYER_TWO\",\n      \"EMPTY\"\n    ],\n    [\n      \"EMPTY\",\n      \"PLAYER_TWO\",\n      \"EMPTY\"\n    ],\n    [\n      \"PLAYER_ONE\",\n      \"PLAYER_TWO\",\n      \"PLAYER_TWO\"\n    ]\n  ],\n  \"size\": 3,\n  \"ownerId\": 0\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/play",
+			"request": {
+				"url": "http://localhost:8080/play/_",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"state\": [\n    [\n      \"EMPTY\",\n      \"PLAYER_TWO\",\n      \"EMPTY\"\n    ],\n    [\n      \"EMPTY\",\n      \"PLAYER_TWO\",\n      \"EMPTY\"\n    ],\n    [\n      \"PLAYER_ONE\",\n      \"PLAYER_TWO\",\n      \"PLAYER_TWO\"\n    ]\n  ],\n  \"size\": 3\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

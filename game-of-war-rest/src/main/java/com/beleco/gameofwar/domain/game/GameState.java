@@ -3,9 +3,27 @@ package com.beleco.gameofwar.domain.game;
 /**
  * Created by Everdark on 04.07.2017.
  */
-public enum GameState {
-    WAITING_FOR_OPPONENT, YOUR_TURN, OPPONENTS_TURN;
+public class GameState{
 
-    @Override
-    public String toString(){return this.name();}
+    private GameStateEnumerable gameState;
+
+    public GameState(GameStateEnumerable gameState){
+        this.gameState=gameState;
+    }
+
+    public GameStateEnumerable getGameState() {
+        return gameState;
+    }
+
+    public void setGameState(GameStateEnumerable gameState) {
+        this.gameState = gameState;
+    }
+
+    public enum GameStateEnumerable {
+        WAITING_FOR_OPPONENT, YOUR_TURN, OPPONENTS_TURN;
+
+        @Override
+        public String toString(){return this.name();}
+    }
 }
+

@@ -2,6 +2,8 @@ package com.beleco.gameofwar.service;
 
 import com.beleco.gameofwar.domain.game.Board;
 import com.beleco.gameofwar.domain.game.GameState;
+import com.beleco.gameofwar.domain.game.UserID;
+import com.beleco.gameofwar.exception.GameException;
 import com.beleco.gameofwar.exception.NotValidBoardExcepiton;
 import com.beleco.gameofwar.exception.NotValidUsernameException;
 import com.beleco.gameofwar.exception.NotValidUserIdException;
@@ -11,13 +13,13 @@ import com.beleco.gameofwar.exception.NotValidUserIdException;
  */
 public interface GameService {
 
-    String login(String username) throws NotValidUsernameException;
+    UserID login(String username) throws GameException;
 
-    void reset(String userId) throws NotValidUserIdException;
+    void reset(String userId) throws GameException;
 
-    GameState getGameState(String userId) throws NotValidUserIdException;
+    GameState getGameState(String userId) throws GameException;
 
-    Board getBoardState(String userId) throws NotValidUserIdException;
+    Board getBoardState(String userId) throws GameException;
 
-    void play(Board board) throws NotValidBoardExcepiton;
+    void play(Board board, String userId) throws GameException;
 }

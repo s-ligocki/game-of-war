@@ -2,6 +2,8 @@ package com.beleco.gameofwar.controller;
 
 import com.beleco.gameofwar.domain.game.Board;
 import com.beleco.gameofwar.domain.game.GameState;
+import com.beleco.gameofwar.domain.game.UserID;
+import com.beleco.gameofwar.exception.GameException;
 import com.beleco.gameofwar.exception.NotValidBoardExcepiton;
 import com.beleco.gameofwar.exception.NotValidUsernameException;
 import com.beleco.gameofwar.exception.NotValidUserIdException;
@@ -23,31 +25,31 @@ public class GameController {
      */
     @CrossOrigin(origins = "http://localhost:63342")
     @RequestMapping(value = "/login/{username}", method = RequestMethod.GET)
-    public String login(@PathVariable String username) throws NotValidUsernameException {
+    public UserID login(@PathVariable String username) throws GameException {
         return gameService.login(username);
     }
 
     @CrossOrigin(origins = "http://localhost:63342")
     @RequestMapping(value = "/reset/{userId}", method = RequestMethod.GET)
-    public void reset(@PathVariable String userId) throws NotValidUserIdException {
+    public void reset(@PathVariable String userId) throws GameException {
         gameService.reset(userId);
     }
 
     @CrossOrigin(origins = "http://localhost:63342")
     @RequestMapping(value = "/get-game-state/{userId}", method = RequestMethod.GET)
-    public GameState getGameState(@PathVariable String userId) throws NotValidUserIdException {
+    public GameState getGameState(@PathVariable String userId) throws GameException {
         return gameService.getGameState(userId);
     }
 
     @CrossOrigin(origins = "http://localhost:63342")
     @RequestMapping(value = "/get-board/{userId}", method = RequestMethod.GET)
-    public Board getBoard(@PathVariable String userId) throws NotValidUserIdException {
+    public Board getBoard(@PathVariable String userId) throws GameException {
         return gameService.getBoardState(userId);
     }
 
     @CrossOrigin(origins = "http://localhost:63342")
-    @RequestMapping(value = "/play", method = RequestMethod.POST)
-    public void play(@RequestBody Board board) throws NotValidBoardExcepiton {
-        gameService.play(board);
+    @RequestMapping(value = "/play/{userId}", method = RequestMethod.POST)
+    public void play(@RequestBody Board board, @PathVariable String userId) throws GameException {
+        gameService.play(board, userId);
     }
 }

@@ -3,6 +3,7 @@ package com.beleco.gameofwar.controller;
 import com.beleco.gameofwar.Application;
 import com.beleco.gameofwar.domain.game.Board;
 import com.beleco.gameofwar.domain.game.GameState;
+import com.beleco.gameofwar.domain.game.UserID;
 import com.beleco.gameofwar.service.GameService;
 import org.junit.Before;
 import org.junit.Test;
@@ -58,7 +59,7 @@ public class GameControllerTest {
 
     @Test
     public void login() throws Exception {
-        when(gameService.login(isA(String.class))).thenReturn("TEST_USER_ID");
+        when(gameService.login(isA(String.class))).thenReturn(new UserID("TEST_USER_ID"));
         mockMvc.perform(get("/login/username")
                 .contentType(contentType))
                 .andExpect(status().isOk());
@@ -73,7 +74,7 @@ public class GameControllerTest {
 
     @Test
     public void getGameState() throws Exception {
-        when(gameService.getGameState(isA(String.class))).thenReturn(GameState.YOUR_TURN);
+        when(gameService.getGameState(isA(String.class))).thenReturn(new GameState(GameState.GameStateEnumerable.YOUR_TURN));
         mockMvc.perform(get("/get-game-state/userid")
                 .contentType(contentType))
                 .andExpect(status().isOk());

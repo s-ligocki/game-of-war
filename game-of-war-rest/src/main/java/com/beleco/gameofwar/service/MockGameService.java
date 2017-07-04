@@ -3,6 +3,8 @@ package com.beleco.gameofwar.service;
 import com.beleco.gameofwar.domain.game.Board;
 import com.beleco.gameofwar.domain.game.Dot;
 import com.beleco.gameofwar.domain.game.GameState;
+import com.beleco.gameofwar.domain.game.UserID;
+import com.beleco.gameofwar.exception.GameException;
 import com.beleco.gameofwar.exception.NotValidBoardExcepiton;
 import com.beleco.gameofwar.exception.NotValidUserIdException;
 import com.beleco.gameofwar.exception.NotValidUsernameException;
@@ -23,26 +25,26 @@ public class MockGameService implements GameService {
     EnumRandomizer<Dot> dotRandomizer;
 
     @Autowired
-    EnumRandomizer<GameState> gameStateRandomizer;
+    EnumRandomizer<GameState.GameStateEnumerable> gameStateRandomizer;
 
     @Override
-    public String login(String username) throws NotValidUsernameException {
-        if(username==null){
+    public UserID login(String username) throws NotValidUsernameException {
+        if(username.equals("_")){
             throw new NotValidUsernameException("Username is null");
         }
-        return "NEW_USER_ID_0000000";
+        return new UserID("NEW_USER_ID_0000000_" + username);
     }
 
     @Override
     public void reset(String userId) throws NotValidUserIdException {
-        if(userId==null){
+        if(userId.equals("_")){
             throw new NotValidUserIdException("UserID is null");
         }
     }
 
     @Override
     public Board getBoardState(String userId) throws NotValidUserIdException{
-        if(userId==null){
+        if(userId.equals("_")){
             throw new NotValidUserIdException("UserId is null");
         }
         return createRandomBoard();
@@ -50,13 +52,15 @@ public class MockGameService implements GameService {
 
     @Override
     public GameState getGameState(String userId) throws NotValidUserIdException {
-        return gameStateRandomizer.getRandomValue();
+        return new GameState(gameStateRandomizer.getRandomValue());
     }
 
     @Override
-    public void play(Board board) throws NotValidBoardExcepiton {
+    public void play(Board board, String userId) throws GameException {
         if(board==null){
             throw new NotValidBoardExcepiton("Board is corrupted");
+        }else if(userId.equals("_")){
+            throw new NotValidUserIdException("UserId is null");
         }
     }
 
@@ -67,7 +71,6 @@ public class MockGameService implements GameService {
     }
 
     private void fillBoardFields(Board board){
-        board.setOwnerId(OWNER_ID);
         board.setSize(BOARD_SIZE);
         board.setState(createBoardState(BOARD_SIZE));
     }
