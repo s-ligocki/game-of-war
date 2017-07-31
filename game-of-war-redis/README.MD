@@ -1,0 +1,5 @@
+**Schema**
+
+USER_ID - USERNAME
+
+GAME - USER_ID_1, USER_ID_2

@@ -1,2 +1,4 @@
 include 'game-of-war-front'
 include 'game-of-war-rest'
+include 'game-of-war-redis'
+
