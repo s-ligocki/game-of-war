@@ -1,37 +1,31 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html lang="en" ng-app="myApp" class="no-js"> <!--<![endif]-->
+<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge"> <!-- TODO - da fok is this -->
   <title>My AngularJS App</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="app.css">
-  <script src="angular.min.js"></script>
+  <link rel="stylesheet" href="style.css">
 </head>
-<body ng-app="myApp">
-  <div ng-controller="Hello">
-    <p>Board size is: {{board.size}}</p>
-    <p>Owner id is: {{board.ownerId}}</p>
-    <p>Board:
-    <table>
-      <tbody ng-repeat="state in board">
-        <tr ng-repeat="row in state">
-          <td ng-repeat="cell in row">{{cell.stateOfLife}}</td>
-        </tr>
-      </tbody>
-  </table>
+<body ng-app="gameOfWar">
+  <div>
 
-    </p>
   </div>
 
-  <div ng-controller="test">
-    Test string:{{variable}}
-  </div>
+  <!-- SCRIPTS -->
+  <!-- LIB -->
+  <script src="lib/angular.min.js"></script>
+  <script src="lib/angular-ui-router.min.js"></script>
 
-  <script src="app.js"></script>
+  <!-- Main module -->
+  <script src="src/gameOfWar.module.js"></script>
+
+  <!-- Game module -->
+  <script src="src/game/game.module.js"></script>
+  <script src="src/game/game.routes.js"></script>
 </body>
 </html>
