@@ -10,9 +10,10 @@
         $stateProvider
             .state('game', {
                 abstract: true,
-                templateUrl: ''
+                templateUrl: 'src/game/game.html'
             }).state('game.login', {
-                //TODO
+                url: '/',
+                templateUrl: 'src/game/login/login.html'
             })
     }
 })();
