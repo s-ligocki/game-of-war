@@ -1,5 +1,6 @@
 ( function () {
     'use strict';
 
-    angular.module('game', ['ui.router']);
+    angular.module('game', ['ui.router'])
+        .constant('ApiPath', 'http://localhost:8080');
 })();
