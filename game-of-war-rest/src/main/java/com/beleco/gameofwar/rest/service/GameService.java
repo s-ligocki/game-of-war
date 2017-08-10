@@ -1,12 +1,7 @@
 package com.beleco.gameofwar.rest.service;
 
-import com.beleco.gameofwar.rest.domain.game.Board;
-import com.beleco.gameofwar.rest.domain.game.GameState;
-import com.beleco.gameofwar.rest.domain.game.UserID;
-import com.beleco.gameofwar.rest.exception.GameException;
-import com.beleco.gameofwar.rest.exception.NotValidBoardExcepiton;
-import com.beleco.gameofwar.rest.exception.NotValidUsernameException;
-import com.beleco.gameofwar.rest.exception.NotValidUserIdException;
+import com.beleco.gameofwar.core.domain.*;
+import com.beleco.gameofwar.core.exception.GameException;
 
 /**
  * Created by Everdark on 13.06.2017.

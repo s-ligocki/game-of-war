@@ -20,7 +20,7 @@ repositories {
 }
 
 dependencies {
-    compile group: 'redis.clients', name: 'jedis', version: '2.9.0'
-    compile("org.springframework.boot:spring-boot-starter-data-jpa")
+    compile group: 'redis.clients', name: 'jedis', version: '2.9.0', configuration: "compile"
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa', configuration: "compile"
     testCompile group: 'junit', name: 'junit', version: '4.12'
 }

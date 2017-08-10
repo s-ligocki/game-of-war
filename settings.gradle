@@ -2,4 +2,3 @@ include 'game-of-war-redis'
 include 'game-of-war-core'
 include 'game-of-war-rest'
 include 'game-of-war-front'
-

@@ -1,4 +1,4 @@
-package com.beleco.gameofwar.rest.exception;
+package com.beleco.gameofwar.core.exception;
 
 /**
  * Created by Everdark on 04.07.2017.

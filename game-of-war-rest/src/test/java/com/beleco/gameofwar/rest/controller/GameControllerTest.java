@@ -1,7 +1,7 @@
 package com.beleco.gameofwar.rest.controller;
 
+import com.beleco.gameofwar.core.domain.*;
 import com.beleco.gameofwar.rest.Application;
-import com.beleco.gameofwar.rest.domain.game.*;
 import com.beleco.gameofwar.rest.service.GameService;
 import org.junit.Before;
 import org.junit.Test;
