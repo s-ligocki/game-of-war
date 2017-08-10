@@ -1,10 +1,8 @@
-package com.beleco.gameofwar.controller;
+package com.beleco.gameofwar.rest.controller;
 
-import com.beleco.gameofwar.Application;
-import com.beleco.gameofwar.domain.game.Board;
-import com.beleco.gameofwar.domain.game.GameState;
-import com.beleco.gameofwar.domain.game.UserID;
-import com.beleco.gameofwar.service.GameService;
+import com.beleco.gameofwar.rest.Application;
+import com.beleco.gameofwar.rest.domain.game.*;
+import com.beleco.gameofwar.rest.service.GameService;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -90,7 +88,7 @@ public class GameControllerTest {
 
     @Test
     public void play() throws Exception {
-        mockMvc.perform(post("/play")
+        mockMvc.perform(post("/play/userid")
                 .content("{\n" +
                         "  \"state\": [\n" +
                         "    [\n" +

@@ -1,4 +1,4 @@
-package com.beleco.gameofwar.domain.game;
+package com.beleco.gameofwar.rest.domain.game;
 
 /**
  * Created by Everdark on 13.06.2017.

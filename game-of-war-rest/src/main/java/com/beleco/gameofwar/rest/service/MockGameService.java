@@ -1,14 +1,14 @@
-package com.beleco.gameofwar.service;
+package com.beleco.gameofwar.rest.service;
 
-import com.beleco.gameofwar.domain.game.Board;
-import com.beleco.gameofwar.domain.game.Dot;
-import com.beleco.gameofwar.domain.game.GameState;
-import com.beleco.gameofwar.domain.game.UserID;
-import com.beleco.gameofwar.exception.GameException;
-import com.beleco.gameofwar.exception.NotValidBoardExcepiton;
-import com.beleco.gameofwar.exception.NotValidUserIdException;
-import com.beleco.gameofwar.exception.NotValidUsernameException;
-import com.beleco.gameofwar.util.EnumRandomizer;
+import com.beleco.gameofwar.rest.domain.game.Board;
+import com.beleco.gameofwar.rest.domain.game.Dot;
+import com.beleco.gameofwar.rest.domain.game.GameState;
+import com.beleco.gameofwar.rest.domain.game.UserID;
+import com.beleco.gameofwar.rest.exception.GameException;
+import com.beleco.gameofwar.rest.exception.NotValidBoardExcepiton;
+import com.beleco.gameofwar.rest.exception.NotValidUserIdException;
+import com.beleco.gameofwar.rest.exception.NotValidUsernameException;
+import com.beleco.gameofwar.rest.util.EnumRandomizer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

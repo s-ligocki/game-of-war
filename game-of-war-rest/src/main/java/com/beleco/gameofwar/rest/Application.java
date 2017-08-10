@@ -1,4 +1,4 @@
-package com.beleco.gameofwar;
+package com.beleco.gameofwar.rest;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

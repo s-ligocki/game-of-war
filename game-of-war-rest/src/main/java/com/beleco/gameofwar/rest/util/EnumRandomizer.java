@@ -1,4 +1,4 @@
-package com.beleco.gameofwar.util;
+package com.beleco.gameofwar.rest.util;
 
 import org.springframework.stereotype.Component;
 

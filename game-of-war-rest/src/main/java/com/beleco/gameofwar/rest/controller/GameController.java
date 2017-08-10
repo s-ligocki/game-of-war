@@ -1,13 +1,13 @@
-package com.beleco.gameofwar.controller;
+package com.beleco.gameofwar.rest.controller;
 
-import com.beleco.gameofwar.domain.game.Board;
-import com.beleco.gameofwar.domain.game.GameState;
-import com.beleco.gameofwar.domain.game.UserID;
-import com.beleco.gameofwar.exception.GameException;
-import com.beleco.gameofwar.exception.NotValidBoardExcepiton;
-import com.beleco.gameofwar.exception.NotValidUsernameException;
-import com.beleco.gameofwar.exception.NotValidUserIdException;
-import com.beleco.gameofwar.service.GameService;
+import com.beleco.gameofwar.rest.domain.game.Board;
+import com.beleco.gameofwar.rest.domain.game.GameState;
+import com.beleco.gameofwar.rest.domain.game.UserID;
+import com.beleco.gameofwar.rest.exception.GameException;
+import com.beleco.gameofwar.rest.exception.NotValidBoardExcepiton;
+import com.beleco.gameofwar.rest.exception.NotValidUsernameException;
+import com.beleco.gameofwar.rest.exception.NotValidUserIdException;
+import com.beleco.gameofwar.rest.service.GameService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
