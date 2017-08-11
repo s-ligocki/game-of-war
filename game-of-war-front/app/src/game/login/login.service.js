@@ -9,12 +9,12 @@
         var serv = this;
         var userData;
 
-        serv.login = function(userId, password) {
-            userData = checkLoginData(userId, password);
+        serv.login = function(userId) {
+            userData = checkLoginData(userId);
             return userData;
         };
 
-        function checkLoginData(userId, password) {
+        function checkLoginData(userId) {
             console.log(ApiPath + '/login/' + userId);
             return $http
                 .get(

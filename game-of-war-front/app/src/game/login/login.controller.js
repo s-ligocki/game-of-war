@@ -4,22 +4,28 @@
     angular.module('game')
         .controller('loginCTRL', LoginCTRL);
 
-    LoginCTRL.$inject = ['$q','LoginSERV'];
-    function LoginCTRL($q, LoginSERV) {
+    LoginCTRL.$inject = ['$q','LoginSERV', 'GameUser'];
+    function LoginCTRL($q, LoginSERV, GameUser) {
         var ctrl = this;
+        ctrl.info = false;
+        ctrl.user = {
+            userID: ''
+        };
+        ctrl.inputUserId ="";
 
         //TODO - this is probably a little sloppy
-        var promise = log();
-        promise.then(function(result){
-            ctrl.loginInfo = result;
-                console.log(ctrl.loginInfo);
-        })
+        //var promise = log();
+        ctrl.login = function() {
+            ctrl.info = false;
+            var promise = LoginSERV.login(ctrl.inputUserId);
 
-        function log() {
-            var deferred = $q.defer();
-            deferred.resolve(LoginSERV.login(123,123));
-
-            return deferred.promise;
+            promise.then(function(result){
+                GameUser = result;
+                ctrl.user.userID = result.userID;
+                console.log(GameUser.userID);
+            })
+            ctrl.info = true;
         }
+
     }
 })();

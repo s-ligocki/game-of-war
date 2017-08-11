@@ -2,4 +2,6 @@
 <a ui-sref="game.play">Take me to game</a> <br/>
 <a ui-sref="game.waiting">Take me to wait</a><br/>
 
-{{ctrl.loginInfo}}
+<input ng-model="ctrl.inputUserId"/>
+<button ng-click="ctrl.login()">Login</button>
+<div ng-show="ctrl.info">Your login is {{ctrl.user.userID}}</div>
