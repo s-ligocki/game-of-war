@@ -2,6 +2,32 @@
 <a ui-sref="game.play">Take me to game</a> <br/>
 <a ui-sref="game.waiting">Take me to wait</a><br/>
 
-<input ng-model="ctrl.inputUserId"/>
-<button ng-click="ctrl.login()">Login</button>
+<form name="loginForm" novalidate>
+    <input type="text"
+           name="user_login"
+           ng-model="ctrl.inputUserId"
+           placeholder="enter login"
+           required
+    />
+    <span ng-if="loginForm.user_login.$error.reqired && loginForm.user_login.$touched">
+        Field is required
+    </span>
+
+    <button ng-click="ctrl.login()" ng-disabled="loginForm.$invalid">
+        Login
+    </button>
+</form>
+
 <div ng-show="ctrl.info">Your login is {{ctrl.user.userID}}</div>
+
+<br/>
+<br/>
+<br/>
+
+<p>
+    <!-- TODO -->
+    <h2>UWAGA!</h2>
+    Na razie login nie jest persystentny - musi to być cookie... chyba. Trzeba poczytać o bezpiecznym logowaniu. <br/>
+    Cookie: <br/>
+    <a href="https://docs.angularjs.org/api/ngCookies/service/$cookies">Angular $cookie</a>
+</p>

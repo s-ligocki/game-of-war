@@ -4,8 +4,8 @@
     angular.module('game')
         .controller('loginCTRL', LoginCTRL);
 
-    LoginCTRL.$inject = ['$q','LoginSERV', 'GameUser'];
-    function LoginCTRL($q, LoginSERV, GameUser) {
+    LoginCTRL.$inject = ['$q','LoginSERV', 'GameUser', '$state'];
+    function LoginCTRL($q, LoginSERV, GameUser, $state) {
         var ctrl = this;
         ctrl.info = false;
         ctrl.user = {
@@ -20,11 +20,18 @@
             var promise = LoginSERV.login(ctrl.inputUserId);
 
             promise.then(function(result){
-                GameUser = result;
+                GameUser.userID = result.userID;
                 ctrl.user.userID = result.userID;
                 console.log(GameUser.userID);
+            }).then(function(){
+                $state.go('game.waiting');
+            }).catch(function (error) {
+                //TODO - some error info
             })
+
             ctrl.info = true;
+
+
         }
 
     }
