@@ -19,6 +19,7 @@
             ctrl.info = false;
             var promise = LoginSERV.login(ctrl.inputUserId);
 
+            //TODO - this should be in service (as in waiting)
             promise.then(function(result){
                 GameUser.userID = result.userID;
                 ctrl.user.userID = result.userID;

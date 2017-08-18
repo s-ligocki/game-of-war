@@ -15,7 +15,6 @@
         };
 
         function checkLoginData(userId) {
-            console.log(ApiPath + '/login/' + userId);
             return $http
                 .get(
                     ApiPath + '/login/' + userId
@@ -24,8 +23,8 @@
                         return response.data;
                     }
                 ).catch(
-                    function(){
-                        return "ERROR during login";
+                    function(error){
+                        return "ERROR during login: " + error;
                     }
                 );
         }

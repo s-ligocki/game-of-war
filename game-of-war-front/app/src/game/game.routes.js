@@ -20,10 +20,17 @@
                 url: '/wait',
                 templateUrl: 'src/game/waiting/waiting.html',
                 controller: 'waitCTRL',
-                controllerAs: 'ctrl'
+                controllerAs: 'waitCtrl',
+                resolve: {
+                    ifGameReadyGoToIt : ['waitSERV', function (WaitSERV) {
+                        return WaitSERV.getGameState();
+                    }]
+                }
             }).state('game.play', {
-                url: '/play', //TODO - probably add some gameID here
-                templateUrl: 'src/game/play/play.html'
+                url: '/play',
+                templateUrl: 'src/game/play/play.html',
+                controller: 'playCTRL',
+                controllerAs: 'playCtrl'
             })
     }
 })();
