@@ -10,11 +10,11 @@ public interface GameService {
 
     UserID login(String username) throws GameException;
 
-    void reset(String userId) throws GameException;
+    ReturnStatus reset(String userId) throws GameException;
 
     GameState getGameState(String userId) throws GameException;
 
     Board getBoardState(String userId) throws GameException;
 
-    void play(Board board, String userId) throws GameException;
+    ReturnStatus play(Board board, String userId) throws GameException;
 }

@@ -1,4 +1,4 @@
-package com.beleco.gameofwar.redis.config;
+package com.beleco.gameofwar.redis.configuration;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;

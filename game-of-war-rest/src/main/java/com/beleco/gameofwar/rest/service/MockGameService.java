@@ -1,13 +1,10 @@
 package com.beleco.gameofwar.rest.service;
 
-import com.beleco.gameofwar.core.domain.Board;
-import com.beleco.gameofwar.core.domain.Dot;
-import com.beleco.gameofwar.core.domain.GameState;
-import com.beleco.gameofwar.core.domain.UserID;
+import com.beleco.gameofwar.core.domain.*;
 import com.beleco.gameofwar.core.exception.GameException;
-import com.beleco.gameofwar.rest.exception.NotValidBoardExcepiton;
-import com.beleco.gameofwar.rest.exception.NotValidUserIdException;
-import com.beleco.gameofwar.rest.exception.NotValidUsernameException;
+import com.beleco.gameofwar.rest.exception.NotValidBoardRestException;
+import com.beleco.gameofwar.rest.exception.NotValidUserIdRestException;
+import com.beleco.gameofwar.rest.exception.NotValidUsernameRestException;
 import com.beleco.gameofwar.rest.util.EnumRandomizer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -15,7 +12,7 @@ import org.springframework.stereotype.Component;
 /**
  * Created by Everdark on 13.06.2017.
  */
-@Component
+//@Component
 public class MockGameService implements GameService {
 
     private final long OWNER_ID = 0L;
@@ -28,40 +25,42 @@ public class MockGameService implements GameService {
     EnumRandomizer<GameState.GameStateEnumerable> gameStateRandomizer;
 
     @Override
-    public UserID login(String username) throws NotValidUsernameException {
+    public UserID login(String username) throws NotValidUsernameRestException {
         if(username.equals("_")){
-            throw new NotValidUsernameException("Username is null");
+            throw new NotValidUsernameRestException("Username is null");
         }
         return new UserID("NEW_USER_ID_0000000_" + username);
     }
 
     @Override
-    public void reset(String userId) throws NotValidUserIdException {
+    public ReturnStatus reset(String userId) throws NotValidUserIdRestException {
         if(userId.equals("_")){
-            throw new NotValidUserIdException("UserID is null");
+            throw new NotValidUserIdRestException("UserID is null");
         }
+        return new ReturnStatus("OK");
     }
 
     @Override
-    public Board getBoardState(String userId) throws NotValidUserIdException{
+    public Board getBoardState(String userId) throws NotValidUserIdRestException {
         if(userId.equals("_")){
-            throw new NotValidUserIdException("UserId is null");
+            throw new NotValidUserIdRestException("UserId is null");
         }
         return createRandomBoard();
     }
 
     @Override
-    public GameState getGameState(String userId) throws NotValidUserIdException {
+    public GameState getGameState(String userId) throws NotValidUserIdRestException {
         return new GameState(gameStateRandomizer.getRandomValue());
     }
 
     @Override
-    public void play(Board board, String userId) throws GameException {
+    public ReturnStatus play(Board board, String userId) throws GameException {
         if(board==null){
-            throw new NotValidBoardExcepiton("Board is corrupted");
+            throw new NotValidBoardRestException("Board is corrupted");
         }else if(userId.equals("_")){
-            throw new NotValidUserIdException("UserId is null");
+            throw new NotValidUserIdRestException("UserId is null");
         }
+        return new ReturnStatus("OK");
     }
 
     private Board createRandomBoard(){

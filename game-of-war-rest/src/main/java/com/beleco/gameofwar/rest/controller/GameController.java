@@ -2,6 +2,7 @@ package com.beleco.gameofwar.rest.controller;
 
 import com.beleco.gameofwar.core.domain.Board;
 import com.beleco.gameofwar.core.domain.GameState;
+import com.beleco.gameofwar.core.domain.ReturnStatus;
 import com.beleco.gameofwar.core.domain.UserID;
 import com.beleco.gameofwar.core.exception.GameException;
 import com.beleco.gameofwar.rest.service.GameService;
@@ -28,8 +29,8 @@ public class GameController {
 
     @CrossOrigin(origins = "http://localhost:63342")
     @RequestMapping(value = "/reset/{userId}", method = RequestMethod.GET)
-    public void reset(@PathVariable String userId) throws GameException {
-        gameService.reset(userId);
+    public ReturnStatus reset(@PathVariable String userId) throws GameException {
+        return gameService.reset(userId);
     }
 
     @CrossOrigin(origins = "http://localhost:63342")
@@ -46,7 +47,7 @@ public class GameController {
 
     @CrossOrigin(origins = "http://localhost:63342")
     @RequestMapping(value = "/play/{userId}", method = RequestMethod.POST)
-    public void play(@RequestBody Board board, @PathVariable String userId) throws GameException {
-        gameService.play(board, userId);
+    public ReturnStatus play(@RequestBody Board board, @PathVariable String userId) throws GameException {
+        return gameService.play(board, userId);
     }
 }

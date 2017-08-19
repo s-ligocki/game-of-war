@@ -1,4 +1,4 @@
-package com.beleco.gameofwar.rest.redis.utils;
+package com.beleco.gameofwar.redis.utils;
 
 import redis.clients.jedis.Jedis;
 
