@@ -1,6 +1,6 @@
 package com.beleco.gameofwar.rest.service;
 
-import com.beleco.gameofwar.core.domain.UserID;
+import com.beleco.gameofwar.domain.domain.UserID;
 import com.beleco.gameofwar.rest.Application;
 import org.junit.Test;
 import org.junit.runner.RunWith;

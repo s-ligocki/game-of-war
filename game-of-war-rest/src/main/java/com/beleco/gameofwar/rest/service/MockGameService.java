@@ -1,13 +1,12 @@
 package com.beleco.gameofwar.rest.service;
 
-import com.beleco.gameofwar.core.domain.*;
-import com.beleco.gameofwar.core.exception.GameException;
+import com.beleco.gameofwar.domain.domain.*;
+import com.beleco.gameofwar.domain.exception.GameException;
 import com.beleco.gameofwar.rest.exception.NotValidBoardRestException;
 import com.beleco.gameofwar.rest.exception.NotValidUserIdRestException;
 import com.beleco.gameofwar.rest.exception.NotValidUsernameRestException;
 import com.beleco.gameofwar.rest.util.EnumRandomizer;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
 /**
  * Created by Everdark on 13.06.2017.

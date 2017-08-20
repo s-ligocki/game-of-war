@@ -1,6 +1,6 @@
 package com.beleco.gameofwar.rest.util;
 
-import com.beleco.gameofwar.core.domain.Dot;
+import com.beleco.gameofwar.domain.domain.Dot;
 import org.springframework.stereotype.Component;
 
 /**

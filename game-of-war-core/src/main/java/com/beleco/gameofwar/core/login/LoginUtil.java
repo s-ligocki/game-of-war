@@ -1,6 +1,7 @@
 package com.beleco.gameofwar.core.login;
 
-import com.beleco.gameofwar.core.domain.UserID;
+import com.beleco.gameofwar.domain.domain.ReturnStatus;
+import com.beleco.gameofwar.domain.domain.UserID;
 
 /**
  * Created by Everdark on 19.08.2017.
@@ -8,6 +9,10 @@ import com.beleco.gameofwar.core.domain.UserID;
 public class LoginUtil{
 
     public UserID performLogin(String username){
-        return new UserID("...");
+        return null;
+    }
+
+    public ReturnStatus performUnregister(String userId){
+        return null;
     }
 }

@@ -1,11 +1,12 @@
 package com.beleco.gameofwar.rest.service;
 
-import com.beleco.gameofwar.core.domain.Board;
-import com.beleco.gameofwar.core.domain.GameState;
-import com.beleco.gameofwar.core.domain.ReturnStatus;
-import com.beleco.gameofwar.core.domain.UserID;
-import com.beleco.gameofwar.core.exception.GameException;
-import com.beleco.gameofwar.core.login.LoginUtil;
+import com.beleco.gameofwar.domain.domain.Board;
+import com.beleco.gameofwar.domain.domain.GameState;
+import com.beleco.gameofwar.domain.domain.ReturnStatus;
+import com.beleco.gameofwar.domain.domain.UserID;
+import com.beleco.gameofwar.domain.exception.GameException;
+import com.beleco.gameofwar.redis.service.LoginService;
+import com.beleco.gameofwar.rest.util.UserIDGeneratorSingleton;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -16,11 +17,16 @@ import org.springframework.stereotype.Component;
 public class SimpleGameService implements GameService {
 
     @Autowired
-    private LoginUtil loginUtil;
+    private LoginService loginService;
 
     @Override
     public UserID login(String username) throws GameException {
-        return loginUtil.performLogin(username);
+        if(loginService.userExists(username)){
+            return loginService.getUserIdByUsername(username);
+        }
+        UserID newUserID = UserIDGeneratorSingleton.getInstance().getNextID();
+        loginService.saveNewUser(username, newUserID);
+        return newUserID;
     }
 
     @Override

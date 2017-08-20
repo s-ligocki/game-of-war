@@ -1,10 +1,10 @@
 package com.beleco.gameofwar.rest.controller;
 
-import com.beleco.gameofwar.core.domain.Board;
-import com.beleco.gameofwar.core.domain.GameState;
-import com.beleco.gameofwar.core.domain.ReturnStatus;
-import com.beleco.gameofwar.core.domain.UserID;
-import com.beleco.gameofwar.core.exception.GameException;
+import com.beleco.gameofwar.domain.domain.Board;
+import com.beleco.gameofwar.domain.domain.GameState;
+import com.beleco.gameofwar.domain.domain.ReturnStatus;
+import com.beleco.gameofwar.domain.domain.UserID;
+import com.beleco.gameofwar.domain.exception.GameException;
 import com.beleco.gameofwar.rest.service.GameService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

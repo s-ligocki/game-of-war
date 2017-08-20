@@ -1,4 +1,4 @@
-package com.beleco.gameofwar.core.exception;
+package com.beleco.gameofwar.domain.exception;
 
 /**
  * Created by Everdark on 04.07.2017.

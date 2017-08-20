@@ -1,7 +1,10 @@
 package com.beleco.gameofwar.rest.service;
 
-import com.beleco.gameofwar.core.domain.*;
-import com.beleco.gameofwar.core.exception.GameException;
+import com.beleco.gameofwar.domain.exception.GameException;
+import com.beleco.gameofwar.domain.domain.Board;
+import com.beleco.gameofwar.domain.domain.GameState;
+import com.beleco.gameofwar.domain.domain.ReturnStatus;
+import com.beleco.gameofwar.domain.domain.UserID;
 
 /**
  * Created by Everdark on 13.06.2017.

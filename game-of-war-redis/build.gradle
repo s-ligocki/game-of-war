@@ -20,7 +20,12 @@ repositories {
 }
 
 dependencies {
+    compile project(':game-of-war-domain')
     compile group: 'redis.clients', name: 'jedis', version: '2.9.0', configuration: "compile"
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa', configuration: "compile"
+    compile group: 'org.springframework.data', name: 'spring-data-redis', version: '1.8.6.RELEASE'
+
     testCompile group: 'junit', name: 'junit', version: '4.12'
+    testCompile 'org.mockito:mockito-core:2.7.22'
+    testCompile group: 'org.springframework', name: 'spring-test', configuration: "test"
 }
