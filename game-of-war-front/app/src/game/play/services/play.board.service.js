@@ -1,23 +1,27 @@
-/**
- * Created by jakub on 18.08.2017.
- */
 (function () {
     'use strict';
 
     angular.module('game')
         .service('boardSERV', BoardSERV);
 
-    BoardSERV.$inject = ['$http', 'ApiPath'];
-    function BoardSERV($http, ApiPath) {
+    BoardSERV.$inject = ['$http', 'GameUser', 'ApiPath'];
+    function BoardSERV($http, GameUser, ApiPath) {
         var serv = this;
+        var board;
 
-        serv.getBoard = function (gameUser) {
+        serv.getBoard = function () {
+            board = getRestBoard(GameUser.userID);
+            return board;
+        }
+
+        function getRestBoard(gameUser) {
             return $http
                 .get(
                     ApiPath + '/get-board/' + gameUser.userID
                 ).then(
                     function(response) {
-                        console.log('response: ',response.data);
+                        console.log('boardSERV response: ',response.data);
+                        console.log('boardSERV GameUser:', GameUser);
                         return response.data;
                     }
                 ).catch(

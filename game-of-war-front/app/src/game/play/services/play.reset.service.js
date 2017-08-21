@@ -1,23 +1,27 @@
-/**
- * Created by jakub on 18.08.2017.
- */
 (function () {
     'use strict';
 
     angular.module('game')
         .service('resetSERV', ResetSERV);
 
-    ResetSERV.$inject = ['$http', 'ApiPath', '$state'];
-    function ResetSERV($http, ApiPath, $state) {
+    ResetSERV.$inject = ['$http', 'GameUser', 'ApiPath', '$state'];
+    function ResetSERV($http, GameUser, ApiPath, $state) {
         var serv = this;
+        var resetStatus;
 
-        serv.reset = function (gameUser) {
+        serv.reset = function () {
+            resetStatus = resetRest(GameUser);
+            return resetStatus;
+        }
+
+        function resetRest(gameUser){
             return $http
                 .get(
                     ApiPath + '/reset/' + gameUser.userID
                 ).then(
                     function(response) {
-                        console.log('response: ',response.data);
+                        console.log('resetSERV response: ',response.data);
+                        console.log('resetSERV GameUser:', GameUser);
                         $state.go('game.waiting');
                     }
                 ).catch(

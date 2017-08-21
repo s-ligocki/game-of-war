@@ -11,12 +11,14 @@
             .state('game', {
                 abstract: true,
                 templateUrl: 'src/game/game.html'
-            }).state('game.login', {
+            })
+            .state('game.login', {
                 url: '/',
                 templateUrl: 'src/game/login/login.html',
                 controller: 'loginCTRL',
                 controllerAs: 'ctrl'
-            }).state('game.waiting', {
+            })
+            .state('game.waiting', {
                 url: '/wait',
                 templateUrl: 'src/game/waiting/waiting.html',
                 controller: 'waitCTRL',
@@ -26,11 +28,17 @@
                         return WaitSERV.getGameState();
                     }]
                 }
-            }).state('game.play', {
+            })
+            .state('game.play', {
                 url: '/play',
                 templateUrl: 'src/game/play/play.html',
                 controller: 'playCTRL',
-                controllerAs: 'playCtrl'
+                controllerAs: 'playCtrl',
+                resolve: {
+                    board : ['boardSERV', function (BoardSERV) {
+                        return BoardSERV.getBoard();
+                    }]
+                }
             })
     }
 })();

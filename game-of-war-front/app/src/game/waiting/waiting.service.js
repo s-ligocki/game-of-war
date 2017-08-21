@@ -1,6 +1,3 @@
-/**
- * Created by jakub on 18.08.2017.
- */
 (function () {
     'use strict';
 
@@ -13,13 +10,11 @@
         var gameState;
 
         serv.getGameState = function() {
-            gameState = checkGameState(GameUser.userID);
+            gameState = getRestGameState(GameUser.userID);
             return gameState;
         };
 
-        function checkGameState(userId) {
-
-            console.log(ApiPath + '/get-game-state/' + userId);
+        function getRestGameState(userId) {
             return $http
                 .get(
                     ApiPath + '/get-game-state/' + userId
@@ -28,7 +23,8 @@
                         if(response.data.gameState == 'YOUR_TURN') {
                             $state.go('game.play');
                         }
-                        console.log(response.data);
+                        console.log('waitSERV response:', response.data);
+                        console.log('waitSERV GameUser:', GameUser);
                         return response.data;
                     }
                 ).catch(

@@ -2,10 +2,10 @@
     'use strict';
 
     angular.module('game')
-        .service("LoginSERV", LoginSERV);
+        .service("loginSERV", LoginSERV);
 
-    LoginSERV.$inject = ['$http', 'ApiPath'];
-    function LoginSERV($http, ApiPath) {
+    LoginSERV.$inject = ['$http', 'GameUser', 'ApiPath', '$state'];
+    function LoginSERV($http, GameUser, ApiPath, $state) {
         var serv = this;
         var userData;
 
@@ -20,6 +20,10 @@
                     ApiPath + '/login/' + userId
                 ).then(
                     function(response) {
+                        //TODO - na razie logowanie zawsze się udaje
+                        GameUser.userID = response.data.userID;
+                        console.log(GameUser.userID);
+                        $state.go('game.waiting');
                         return response.data;
                     }
                 ).catch(

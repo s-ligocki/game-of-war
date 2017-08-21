@@ -7,12 +7,9 @@
     angular.module('game')
         .controller('waitCTRL', WaitCTRL);
 
-    WaitCTRL.$inject = ['GameUser', 'ifGameReadyGoToIt'];
-    function WaitCTRL(GameUser, ifGameReadyGoToIt) {
+    WaitCTRL.$inject = ['ifGameReadyGoToIt'];
+    function WaitCTRL(ifGameReadyGoToIt) {
         var ctrl = this;
-        ctrl.gameUser = GameUser;
         ctrl.state = ifGameReadyGoToIt;
-
-
     }
 })();
