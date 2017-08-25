@@ -1,1 +1,12 @@
+<link rel="stylesheet" href="game-of-war-front/app/css/board.css"/>
 <h2>Board</h2>
+    <table class='grid'>
+        <tr ng-repeat="row in vm.board">
+            <td ng-repeat="cell in row"
+                ng-class="{'alive':cell.isAlive}"
+                ng-click="cell.toggle()">
+            </td>
+        </tr>
+    </table>
+</div>
+

@@ -1,0 +1,21 @@
+.grid {
+    margin: auto;
+    border-spacing: 0;
+    border: solid 2px #111;
+}
+
+.grid tr td {
+    margin: 0;
+    padding: 0;
+    border: solid 1px #111;
+    width: 22px;
+    height: 22px;
+}
+
+.grid tr td .alive{
+    background: #fff;
+}
+
+.grid tr td .hover{
+    cursor:pointer;
+}
