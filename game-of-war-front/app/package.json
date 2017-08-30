@@ -1,0 +1,27 @@
+{
+  "name": "app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "dependencies": {
+    "angular": "^1.6.6",
+    "angular-mocks": "^1.6.6",
+    "angular-ui-router": "^1.0.3"
+  },
+  "devDependencies": {
+    "jasmine-core": "^2.8.0",
+    "karma": "^1.7.1",
+    "karma-edge-launcher": "^0.4.1",
+    "karma-ie-launcher": "^1.0.0",
+    "karma-jasmine": "^1.1.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
