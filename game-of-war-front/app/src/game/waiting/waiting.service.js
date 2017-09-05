@@ -10,14 +10,14 @@
         var gameState;
 
         serv.getGameState = function() {
-            gameState = getRestGameState(GameUser.userID);
+            gameState = getRestGameState(GameUser);
             return gameState;
         };
 
-        function getRestGameState(userId) {
+        function getRestGameState(gameUser) {
             return $http
                 .get(
-                    ApiPath + '/get-game-state/' + userId
+                    ApiPath + '/get-game-state/' + gameUser.userID
                 ).then(
                     function(response) {
                         if(response.data.gameState == 'YOUR_TURN') {

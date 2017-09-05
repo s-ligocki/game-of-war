@@ -9,7 +9,7 @@
         var serv = this;
 
         serv.submitMove = function (board) {
-            submitRestMove(board, GameUser.userID);
+            submitRestMove(board, GameUser);
         }
 
         function  submitRestMove(board, gameUser) {
@@ -20,7 +20,7 @@
                     function(response) {
                         //TODO - board needed
                         console.log('submitMoveSERV response: ',response.data);
-                        console.log('submitMoveSERV GameUser:', GameUser);
+                        console.log('submitMoveSERV GameUser:', gameUser);
                         return response.data;
                     }
                 ).catch(

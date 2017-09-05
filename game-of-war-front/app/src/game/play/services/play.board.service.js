@@ -10,7 +10,7 @@
         var board;
 
         serv.getBoard = function () {
-            board = getRestBoard(GameUser.userID);
+            board = getRestBoard(GameUser);
             return board;
         }
 

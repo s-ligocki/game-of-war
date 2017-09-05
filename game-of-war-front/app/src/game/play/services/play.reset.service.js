@@ -23,6 +23,7 @@
                         console.log('resetSERV response: ',response.data);
                         console.log('resetSERV GameUser:', GameUser);
                         $state.go('game.waiting');
+                        return response.data;
                     }
                 ).catch(
                     function(error){
