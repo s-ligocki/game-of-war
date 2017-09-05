@@ -15,7 +15,9 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      'node_modules/angular/angular.min.js',
+      'lib/angular.min.js',
+      'lib/angular-*.js',
+      'src/*.js',
       'src/**/*.js',
       'test/**/*.js'
     ],
@@ -35,7 +37,7 @@ module.exports = function(config) {
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['progress'],
+      reporters: ['progress'],
 
 
     // web server port

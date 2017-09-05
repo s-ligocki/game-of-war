@@ -10,7 +10,8 @@
   "dependencies": {
     "angular": "^1.6.6",
     "angular-mocks": "^1.6.6",
-    "angular-ui-router": "^1.0.3"
+    "angular-ui-router": "^1.0.3",
+    "karma-opera-launcher": "^1.0.0"
   },
   "devDependencies": {
     "jasmine-core": "^2.8.0",
