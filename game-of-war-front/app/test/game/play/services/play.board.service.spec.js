@@ -18,11 +18,19 @@ describe("Get Board Service", function () {
         });
     });
 
+    it('play.board.service is defined', function () {
+        expect(getBoardService).toBeDefined();
+    });
+
+    it('getBoard method is defined', function () {
+        expect(getBoardService.getBoard).toBeDefined();
+    });
+
     it('GetBoard http service returns data', function() {
         $httpBackend.whenGET(ApiPath + '/get-board/12').respond('USER_ID_12');
         getBoardService.getBoard().then(function(response) {
             expect(response).toEqual('USER_ID_12');
         });
-        $httpBackend.flush();
+        //$httpBackend.flush();
     });
 });

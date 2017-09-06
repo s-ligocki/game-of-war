@@ -1,5 +1,5 @@
-describe("Reset Service", function () {
-    var submitMoveService;
+describe("Waiting Service", function () {
+    var waitingService;
     var $httpBackend;
     var ApiPath;
 
@@ -12,17 +12,25 @@ describe("Reset Service", function () {
         });
 
         angular.mock.inject(function ($injector) {
-            submitMoveService = $injector.get('waitSERV');
+            waitingService = $injector.get('waitSERV');
             $httpBackend = $injector.get('$httpBackend');
             ApiPath = $injector.get('ApiPath');
         });
     });
 
+    it('waiting.service is defined', function () {
+        expect(waitingService).toBeDefined();
+    });
+
+    it('getGameState method is defined', function () {
+        expect(waitingService.getGameState).toBeDefined();
+    });
+
     it('Waiting http service returns data', function() {
         $httpBackend.whenGET(ApiPath + '/get-game-state/12').respond('USER_ID_12');
-        submitMoveService.getGameState().then(function(response) {
+        waitingService.getGameState().then(function(response) {
             expect(response).toEqual('USER_ID_12');
         });
-        $httpBackend.flush();
+        //$httpBackend.flush();
     });
 });

@@ -18,11 +18,19 @@ describe("Reset Service", function () {
         });
     });
 
+    it('play.reset.board.service is defined', function () {
+        expect(resetService).toBeDefined();
+    });
+
+    it('reset method is defined', function () {
+        expect(resetService.reset).toBeDefined();
+    });
+
     it('Reset http service returns data', function() {
         $httpBackend.whenGET(ApiPath + '/reset/12').respond('USER_ID_12');
         resetService.reset().then(function(response) {
             expect(response).toEqual('USER_ID_12');
         });
-        $httpBackend.flush();
+        //$httpBackend.flush();
     });
 });

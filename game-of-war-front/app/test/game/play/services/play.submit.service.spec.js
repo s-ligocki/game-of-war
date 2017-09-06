@@ -1,4 +1,4 @@
-describe("Reset Service", function () {
+describe("Submit Service", function () {
     var submitMoveService;
     var $httpBackend;
     var ApiPath;
@@ -19,11 +19,19 @@ describe("Reset Service", function () {
         });
     });
 
-    xit('GetBoard http service returns data', function() {
+    it('play.submit.service is defined', function () {
+        expect(submitMoveService).toBeDefined();
+    });
+
+    it('submitMove method is defined', function () {
+        expect(submitMoveService.submitMove).toBeDefined();
+    });
+
+    xit('Play http service returns data', function() {
         $httpBackend.whenGET(ApiPath + '/play/12').respond('USER_ID_12');
         submitMoveService.submitMove(board).then(function(response) {
             expect(response).toEqual('USER_ID_12');
         });
-        $httpBackend.flush();
+        //$httpBackend.flush();
     });
 });
